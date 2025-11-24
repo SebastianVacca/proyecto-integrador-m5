@@ -55,7 +55,7 @@ public class LibrosController {
         return libroService.actualizarLibro(id, libro);
     }
     
-    @DeleteMapping("/{id")
+    @DeleteMapping("/{id}")
     public void eliminarLibro(@PathVariable Long id){
         libroService.eliminarLibro(id);
     }  

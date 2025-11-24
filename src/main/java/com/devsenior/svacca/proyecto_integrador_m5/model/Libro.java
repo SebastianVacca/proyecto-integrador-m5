@@ -8,21 +8,21 @@ public class Libro {
     private String autor;
     private String isbn;
     private Date anioPublicacion;
-    private String opcional;
+    private String genero;
     private Estado estado;
 
     
     public Libro() {
     }  
 
-    public Libro(Long id, String titulo, String autor, String isbn, Date anioPublicacion, String opcional,
+    public Libro(Long id, String titulo, String autor, String isbn, Date anioPublicacion, String genero,
             Estado estado) {
         this.id = id;
         this.titulo = titulo;
         this.autor = autor;
         this.isbn = isbn;
         this.anioPublicacion = anioPublicacion;
-        this.opcional = opcional;
+        this.genero = genero;
         this.estado = estado;
     }
 
@@ -76,13 +76,13 @@ public class Libro {
     }
 
 
-    public String getOpcional() {
-        return opcional;
+    public String getGenero() {
+        return genero;
     }
 
 
-    public void setOpcional(String opcional) {
-        this.opcional = opcional;
+    public void setGenero(String opcional) {
+        this.genero = opcional;
     }
 
 

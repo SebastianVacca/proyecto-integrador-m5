@@ -1,0 +1,25 @@
+### listar completamente
+GET http://localhost:8080/api/libros
+
+### prueba de respuesta
+POST http://localhost:8080/api/libros
+Content-Type: application/json
+
+{
+    "titulo" : "Libro que escribió Rouss" ,
+    "autor" : "Rouss",
+    "isbn" : "610402",
+    "anioPublicacion" : "2025-01-01",
+    "genero" : "Romance"
+}
+###
+PUT http://localhost:8080/api/libros/1
+Content-Type: application/json
+
+{
+    "titulo" : "Libro 1" ,
+    "autor" : "El que lo escribió ahora",
+    "isbn" : "123456",
+    "anioPublicacion" : "2025-01-01",
+    "genero" : "comedia"
+}
