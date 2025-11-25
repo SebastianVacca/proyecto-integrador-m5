@@ -2,13 +2,33 @@ package com.devsenior.svacca.proyecto_integrador_m5.model;
 
 import java.sql.Date;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+import jakarta.validation.constraints.NotBlank;
+
+@Schema(description = "Representa un Libro")
 public class Libro {
+
+    
     private Long id;
+
+    @Schema(description = "Título del libro", example = "El libro de Juan")
+    @NotBlank(message = "El campo Título del libro es obligatorio")
     private String titulo;
+
+    @Schema(description = "Autor o Autores del libro", example = "Juan Perez, Benito Juarez")    
     private String autor;
+
+    @Schema(description = "Código ISBN del libro debe ser único", example = "978-84-9989-172-4")
+    @NotBlank(message = "El campo Título del libro es obligatorio")
     private String isbn;
+
+    @Schema(description = "Fecha de publicación del libro", example = "1999-01-01")
     private Date anioPublicacion;
+
+    @Schema(description = "Genero literario al que pertenece el libro", example = "Comedia")
     private String genero;
+
+    @Schema(description = "Estado del libro en estanteria el libro", example = "Disponible")    
     private Estado estado;
 
     
@@ -23,7 +43,7 @@ public class Libro {
         this.isbn = isbn;
         this.anioPublicacion = anioPublicacion;
         this.genero = genero;
-        this.estado = estado;
+        this.estado = Estado.DISPONIBLE;
     }
 
     public Long getId() {
