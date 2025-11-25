@@ -21,6 +21,7 @@ import java.util.List;
 import org.springframework.http.MediaType;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -85,5 +86,19 @@ public class LibrosController {
     @DeleteMapping("/{id}")
     public void eliminarLibro(@PathVariable Long id) {
         libroService.eliminarLibro(id);
+    }
+
+    @Operation(summary = "Prestar un libro", description = "Este servicio permite prestar un libro de la lista de libros en la memoria temporal y cambiar su estado en la estanteria")
+    @ApiResponse(responseCode = "400", description = "El Id del libro es obligatorio para poder realizar el préstamo del libro", content = @Content())
+    @ApiResponse(responseCode = "200", description = "Transacción exitosa")
+    @GetMapping(value = "/prestamo/{id}", produces = {MediaType.APPLICATION_JSON_VALUE})
+    public Libro prestamoLibro(@RequestParam(value = "id") Long id){
+        return libroService.prestarLibro(id);
+    }
+
+    @Operation(summary = "Devolver un libro", description = "Este servicio permite devolver un libro a la lista de libros en la memoria temporal y cambiar su estado en la estanteria")
+    @PatchMapping("/devolver/{id}")
+    public Libro devolverLibro(@RequestParam(value = "id") Long id){
+        return libroService.devolverLibro(id);
     }
 }

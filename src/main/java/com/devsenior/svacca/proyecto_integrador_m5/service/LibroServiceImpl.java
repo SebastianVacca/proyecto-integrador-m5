@@ -50,5 +50,15 @@ public class LibroServiceImpl implements LibroService{
     public List<Libro> librosConCoincidencia(String texto) {
         return librosRepository.findContains(texto);
     }
+
+    @Override
+    public Libro prestarLibro(Long id) {
+        return librosRepository.lendBook(id);
+    }
+
+    @Override
+    public Libro devolverLibro(Long id) {
+        return librosRepository.returnBook(id);
+    }   
     
 }

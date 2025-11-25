@@ -57,4 +57,22 @@ public interface LibroService {
      * @return
      */
     List<Libro> librosConCoincidencia(String texto);
+
+    /**
+     * Función en la capa service que se encarga de la comunicación con
+     * la capa de persitencia para cumplir con la tarea de prestar un libro 
+     * y cambiar su estado a "PRESTADO"
+     * @param id
+     * @return
+     */
+    Libro prestarLibro(Long id);
+
+    /**
+     * Función en la capa service que se encarga de la comunicación con
+     * la capa de persitencia para cumplir con la tarea de devolver un libro 
+     * y cambiar su estado a "DISPONIBLE"
+     * @param id
+     * @return
+     */
+    Libro devolverLibro(Long id);
 }

@@ -81,7 +81,34 @@ public class LibrosRepository {
         return String.format("El libro con el Id %d fue eliminado", id);
     }
 
+    /**
+     * Función en la capa de persistencia que busca coincidencias de titulo y retorna los libros que coincidan
+     * @param texto
+     * @return
+     */
     public List<Libro> findContains(String texto){
         return libros.stream().filter(l -> l.getTitulo().toLowerCase().contains(texto.toLowerCase())).toList();
+    }
+
+    /**
+     * Función en la capa de persistencia que permite emular el prestamos de un libro y cambiar su estado a "PRESTADO"
+     * @param id
+     * @return
+     */
+    public Libro lendBook(Long id){
+        var libro = findById(id);
+        libro.setEstado(libro.getEstado().PRESTADO);
+        return libro;
+    }
+
+    /**
+     * Función en la capa de persistencia que permite emular el prestamos de un libro y cambiar su estado a "DISPONIBLE"
+     * @param id
+     * @return
+     */
+    public Libro returnBook(Long id){
+        var libro = findById(id);
+        libro.setEstado(libro.getEstado().DISPONIBLE);
+        return libro;
     }
 }
